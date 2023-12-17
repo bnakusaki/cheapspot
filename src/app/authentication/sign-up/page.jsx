@@ -1,5 +1,6 @@
 'use client'
 
+import { createErrorMessage } from "@/lib/create_error_message";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
@@ -85,7 +86,7 @@ export default function SignUpPage () {
 
                 <div className="mt-4"/>
 
-                <div className="flex w-full items-end justify-end text-left lg:hidden text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]">
+                <div className="flex w-full items-end justify-end text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]">
                     <Link href="/authentication/sign-in">Sign in instead</Link>
                 </div>
 
@@ -102,7 +103,7 @@ export default function SignUpPage () {
             }
             <div className="p-3" />
             {
-                (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${error.code}`}</div> :null
+                (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${createErrorMessage(error)}`}</div> :null
             }
         </form>
             </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import { createErrorMessage } from "@/lib/create_error_message";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -83,7 +84,7 @@ export default function SignInPage () {
                     }
                     <div className="p-3" />
                     {
-                        (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${error}`}</div> :null
+                        (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${createErrorMessage(error)}`}</div> :null
                     }
                 </form>
             </div>
