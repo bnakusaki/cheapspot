@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html>
       <body className="flex flex-col h-screen justify-start">
         <div>{children}</div>
+        <SpeedInsights />
         {/* <footer className="mt-auto">
           <Footer />
         </footer> */}
