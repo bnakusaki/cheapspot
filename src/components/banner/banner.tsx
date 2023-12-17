@@ -8,25 +8,25 @@ function Carousell () {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = [
     {
-      url: '/budget.jpg',
+      url: '/budget.jpeg',
       title: 'Your budget friendly haven',
       pitch: 'CheapSpot efficiently discovers products that offer both affordability and high quality, ensuring each item represents a great bargain.',
       color: 'black'
     },
     {
-      url: '/cheap.jpg',
+      url: '/cheap.jpeg',
       title: 'We offer the most affordable options',
       pitch: 'Experience unparalleled affordability without compromising on impeccable quality! Explore our range of budget-friendly solutions that cater to most needs.',
       color: 'black'
     },
     {
-      url: '/delivery.jpg',
+      url: '/delivery.jpeg',
       title: 'Free delivery',
       pitch: 'Browse and shop worry-free at CheapSpot; we\'ve got your deliveries covered.',
       color: 'white'
     },
     {
-      url: '/quality.jpg',
+      url: '/quality.jpeg',
       title: 'Quality products',
       pitch: 'Discover excellence in every purchase with our premium range of quality products, elevating your satisfaction to new heights.',
       color: 'black'
