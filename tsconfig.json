@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/banner/banner.tsx", "src/app/authentication/components/sign-in-form.jsx", "src/app/authentication/components/sign-up-form.jsx", "src/app/authentication/components/toggle-container.jsx", "src/app/authentication/page.tsx", "src/lib/create_error_message.js", "src/components/header/header.js", "src/app/page.jsx", "src/components/header/header.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/banner/banner.tsx", "src/app/authentication/components/sign-in-form.jsx", "src/app/authentication/components/sign-up-form.jsx", "src/app/authentication/components/toggle-container.jsx", "src/app/authentication/page.tsx", "src/lib/create_error_message.js", "src/components/header/header.js", "src/app/page.jsx", "src/components/header/header.jsx", "src/components/product/product.jsx"],
   "exclude": ["node_modules"]
 }

@@ -49,8 +49,8 @@ function Carousell () {
 
     return (
     <div className="w-full h-full relative group">
-      <div style={{backgroundImage: `url(${slides[currentIndex].url})`}} className="w-full h-full rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out flex p-3 items-end text-center justify-center">
-          <div className="md:mb-5" style={{color: slides[currentIndex].color}}>
+      <div style={{backgroundImage: `url(${slides[currentIndex].url})`}} className="w-full h-full rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out flex p-3 items-end text-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+          <div className="w-full md:py-5 rounded-lg bg-gradient-to-r from-black/30 to-blue-500/30 bg-opacity-10" style={{color: slides[currentIndex].color}}>
             <h1 className="text-2xl md:text-4xl font-medium">{slides[currentIndex].title}</h1>
             <p className="text-xs md:text-xl">{slides[currentIndex].pitch}</p>
           </div>
