@@ -1,4 +1,6 @@
+
 'use client'
+
 
 import { createErrorMessage } from "@/lib/create_error_message";
 import Link from "next/link";
@@ -33,15 +35,12 @@ export default function SignUpPage () {
         event.preventDefault();
         setProcessingSignUp(true);
         setError();
-        await authentication_functions.signUpWithEmailAndPassword(email, password)
+        await authentication_functions.signUpWithEmailAndPassword(name, email, password)
         .then(()=>{router.push("/")})
         .catch((error)=>{setError(error)});
         setProcessingSignUp(false);
     };
 
-    const toggleLeft = ()=>{
-        container.classList.remove('active');
-    }
 
     return (
         <div className="h-screen w-full px-3 flex flex-col justify-center items-center">
@@ -76,18 +75,18 @@ export default function SignUpPage () {
                 <div className="mt-2"/>
                 <div className="w-full">
                     <label >Email</label>
-                    <input type="email" required value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    <input style={error?{borderColor:'red'}:null} type="email" required value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </div>
                 <div className="mt-2"/>
                 <div className="w-full">
                     <label >Password</label>
-                    <input type="password" required value={password} onChange={(e)=>setPassword(e.target.value)} />
+                    <input type="password" required minLength={6} value={password} onChange={(e)=>setPassword(e.target.value)} />
                 </div>
 
                 <div className="mt-4"/>
 
-                <div className="flex w-full items-end justify-end text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]">
-                    <Link href="/authentication/sign-in">Sign in instead</Link>
+                <div className="flex w-full items-end justify-end">
+                    <Link href="/authentication/sign-in" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign in instead</Link>
                 </div>
 
                 <div className="mt-7"/>
@@ -102,9 +101,11 @@ export default function SignUpPage () {
             </button>
             }
             <div className="p-3" />
-            {
-                (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${createErrorMessage(error)}`}</div> :null
-            }
+            <div>
+                {
+                    error? <p className="text-red-500 text-sm">{createErrorMessage({error})}</p> : null
+                }
+            </div>
         </form>
             </div>
         </div>

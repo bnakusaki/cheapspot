@@ -31,9 +31,15 @@ function Profile ({user}) {
                     {user.displayName}
                 </div>
                 <div className="mr-3" />
+            {
+                user.photoURL?
                 <div>
-                    <Image src={user.photoURL} objectFit='cover' className="bg-slate-300 rounded-full" width="30" height="30" alt="A user icon behind the sign up text" />
+                        <Image src={user.photoURL} objectFit='cover' className="bg-slate-300 rounded-full" width="30" height="30" alt="A user icon behind the sign up text" />
+                </div>:
+                <div>
+                    <Image src={userIcon} width="20" height="20" alt="A user icon behind the sign up text" />
                 </div>
+            }
             </div>
         </Link>
     );

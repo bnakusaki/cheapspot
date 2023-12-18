@@ -57,20 +57,20 @@ export default function SignInPage () {
                 <div className="mt-3"/>
                 <div className="w-full">
                     <label>Email</label>
-                    <input type="email" required autoFocus value={email} onChange={(event)=>setEmail(event.target.value)} />
+                    <input style={error?{borderColor:'red'}:null} type="email" required autoFocus value={email} onChange={(event)=>setEmail(event.target.value)} />
                 </div>
                 <div className="mt-2"/>
                 <div className="w-full">
                     <label >Password</label>
-                    <input required type="password" value={password} onChange={(event)=>setPassword(event.target.value)} />
+                    <input style={error?{borderColor:'red'}:null} required type="password" value={password} onChange={(event)=>setPassword(event.target.value)} />
                 </div>
                 <div className="mt-5"/>
-                <div className="flex w-full items-end justify-end text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]">
-                    <Link href="/authentication/forgot-password"><p >Forgot password?</p></Link>
+                <div className="flex w-full items-end justify-end">
+                    <Link href="/authentication/forgot-password" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]"><p >Forgot password?</p></Link>
                 </div>
 
-                <div className="flex w-full items-end justify-end text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]">
-                    <Link href="/authentication/sign-up" >Sign up instead</Link>
+                <div className="flex w-full items-end justify-end">
+                    <Link href="/authentication/sign-up" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign up instead</Link>
                 </div>
 
                     <div className="mt-7"/>
@@ -83,9 +83,11 @@ export default function SignInPage () {
                     </button>
                     }
                     <div className="p-3" />
-                    {
-                        (typeof error) != 'undefined'?<div className="text-red-600 text-center">{`Something went wrong: ${createErrorMessage(error)}`}</div> :null
-                    }
+                    <div>
+                        {
+                            error? <p className="text-red-500 text-sm">{createErrorMessage({error})}</p> : null
+                        }
+                    </div>
                 </form>
             </div>
         </div>

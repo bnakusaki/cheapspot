@@ -5,7 +5,7 @@ import {
     signInWithEmailAndPassword as _signInWithEmailAndPassword,
     signOut as _signOut,
     createUserWithEmailAndPassword,
-    signInWithPopup,
+    signInWithPopup, updateProfile
 } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -36,8 +36,9 @@ export async function  signInWithEmailAndPassword(email, password){
 }
 
 // Sign-up functions.
-export async function  signUpWithEmailAndPassword(email, password){
-    return await createUserWithEmailAndPassword(auth, email, password)
+export async function  signUpWithEmailAndPassword(name, email, password){
+    await createUserWithEmailAndPassword(auth, email, password)
+    await updateProfile(auth.currentUser, {displayName: String(name).trim(),})
 }
 
 export function getCurrentUser(){
