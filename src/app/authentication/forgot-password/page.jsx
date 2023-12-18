@@ -51,8 +51,7 @@ function ForgotPasswordForm () {
                         <label>Email</label>
                         <input type="email" style={error?{borderColor:'red'}:null} required autoFocus value={email} onChange={(event)=>setEmail(event.target.value)} />
                         {
-                            !error? null:
-                            <p className="text-red-500 text-sm">{createErrorMessage({error})}</p>
+                            error? <p className="text-red-500 text-sm">{createErrorMessage({error})}</p> : null
                         }
                     </div>
                     <div className="mt-5"/>
