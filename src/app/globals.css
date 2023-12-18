@@ -19,7 +19,7 @@
 }
 
 /* Input fields decoration. */
-input {
+input, select {
   border: 0.1px solid #cbd5e1;
   outline: none;
   border-radius: 0.5rem;

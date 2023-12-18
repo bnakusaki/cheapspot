@@ -46,12 +46,14 @@ function Carousell () {
     setCurrentIndex(newIndex);
   }
 
+  // window.setInterval(nextSlide, 10000);
+
   const jumpToSlideN = ({index}:{index:number})=>(setCurrentIndex(index));
 
     return (
     <div className="w-full h-full relative group">
-      <div className="w-full h-full rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out flex items-end text-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
-          <Image src={slides[currentIndex].url} width={10000} height={10000} loading='lazy' alt='' className="absolute w-full h-full rounded-lg"/>
+      <div className="w-full h-full rounded-lg bg-cover bg-center flex items-end text-center justify-center">
+          <Image src={slides[currentIndex].url} width={10000} height={10000} loading='lazy' alt='' className="absolute w-full h-full rounded-lg transition-all duration-300 ease-in-out"/>
           <div className="w-full h-full rounded-lg bg-gradient-to-b from-transparent to-black/70 bg-opacity-10 absolute flex flex-col items-center justify-end p-5" style={{color: 'white'}}>
             <h1 className="text-2xl md:text-4xl font-medium">{slides[currentIndex].title}</h1>
             <p className="text-xs md:text-xl">{slides[currentIndex].pitch}</p>
