@@ -1,3 +1,4 @@
+import { Col, Row } from 'antd';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import PurchaseForm from '../components/purchase-form/purchase-form';
@@ -10,7 +11,10 @@ export default async function PurchasePage () {
     let results = (await getDoc(q)).data();
 
     return (
-        <div className="mx-3 md:mx-14 md:grid md:grid-cols-2 md:gap-5">
+        <Row>
+            <Col span={1} />
+            <Col span={22} >
+        <div className="md:grid md:grid-cols-2 md:gap-5">
             <div className="w-full aspect-square bg-gray-300 rounded-lg">
                 <div>
                     {/* <Image src={demo} alt="" objectFit="cover" className="h-full w-full rounded-lg " /> */}
@@ -45,5 +49,9 @@ export default async function PurchasePage () {
                 <PurchaseForm product={results} />
             </div>
         </div>
+            </Col>
+        <Col span={1} />
+
+        </Row>
     );
 }

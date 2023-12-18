@@ -1,5 +1,5 @@
 import { LogoutOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Modal } from 'antd';
+import { Dropdown, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import * as authentication_functions from "../../../firebase/firebase-auth";
@@ -39,7 +39,7 @@ function Profile ({user}) {
     return (
       <>
         <Dropdown menu={{ items }} placement="bottomRight" arrow>
-          <Button type="text" className="flex items-center justify-between">
+          <div type="text" className="flex items-center justify-end">
             <div className="text-sm md:text-lg">
                 {user.displayName}
             </div>
@@ -49,7 +49,7 @@ function Profile ({user}) {
                     <Image src={user.photoURL} objectFit='cover' className="bg-slate-300 rounded-full" width="30" height="30" alt="A user icon behind the sign up text" />
             </div>: null
             }
-          </Button>
+          </div>
         </Dropdown>
         <Modal
           title="Log out"
