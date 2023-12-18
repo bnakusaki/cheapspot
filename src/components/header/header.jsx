@@ -1,49 +1,16 @@
 'use client'
 
 import { onAuthStateChanged } from '@/firebase/firebase-auth';
+import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import logo from '../../../public/cheapspot.png';
-import userIcon from '../../../public/user.png';
+import ProfileMenu from './components/profile';
+import SignInButton from './components/signInButton';
 
-function SignInButton () {
-    return (
-        <Link href="/authentication/sign-in" className="">
-            <div className="flex items-center px-5 py-2 rounded-lg hover:border hover:font-medium hover:bg-gray-100 hover:shadow-sm transition-all duration-100 ease-in-out active:border-gray-300 active:scale-[0.9]">
-                <div>
-                    <Image src={userIcon} width="20" height="20" alt="A user icon behind the sign up text" />
-                </div>
-                <div className="mr-3" />
-                <div className="text-sm md:text-lg">
-                    Sign in
-                </div>
-            </div>
-        </Link>
-    )
-}
 
-function Profile ({user}) {
-    return (
-        <Link href="/account" className="">
-            <div className="flex items-center py-2 rounded-lg hover:px-5 hover:border hover:font-medium hover:bg-gray-100 hover:shadow-sm transition-all duration-100 ease-in-out active:border-gray-300 active:scale-[0.9]">
-                <div className="text-sm md:text-lg">
-                    {user.displayName}
-                </div>
-                <div className="mr-3" />
-            {
-                user.photoURL?
-                <div>
-                        <Image src={user.photoURL} objectFit='cover' className="bg-slate-300 rounded-full" width="30" height="30" alt="A user icon behind the sign up text" />
-                </div>:
-                <div>
-                    <Image src={userIcon} width="20" height="20" alt="A user icon behind the sign up text" />
-                </div>
-            }
-            </div>
-        </Link>
-    );
-}
+
 
 
 function Header () {
@@ -52,18 +19,21 @@ function Header () {
     onAuthStateChanged((user)=>(setUser(user)))
 
     return (
-        <div className="flex items-centerd w-screen items-center justify-between my-3 px-3 md:px-14 h-8 md:h-10">
-            <div>
+        <Row className="flex items-center">
+            <Col span={1}/>
+            <Col span={6}>
                 <Link href="/">
-                    <Image src={logo} className="py-2 w-[100px] lg:w-[110px] transition-all duration-100 ease-in-out active:scale-[0.9]" alt="CheapSpot Logo - An image displaying the text 'cheapspot' with the 'o' being a location icon with a blue dot inside."/>
+                    <Image src={logo} className="py-2 w-[75px] lg:w-[110px] transition-all duration-100 ease-in-out active:scale-[0.9]" alt="CheapSpot Logo - An image displaying the text 'cheapspot' with the 'o' being a location icon with a blue dot inside."/>
                 </Link>
-            </div>
-            <div>
+            </Col>
+            <Col span={10}/>
+            <Col className="flex items-end justify-end" span={6}>
                 {
-                    user?<Profile user={user} /> : <SignInButton />
+                    user? <ProfileMenu user={user} /> : <SignInButton />
                 }
-            </div>
-        </div>
+            </Col>
+            <Col span={1}/>
+        </Row>
     );
 }
 
