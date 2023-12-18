@@ -4,7 +4,7 @@ import PurchaseForm from '../components/purchase-form/purchase-form';
 
 
 
-export default async function PurchasePage ({product}) {
+export default async function PurchasePage () {
     // let id = useRouter().query;
     let q = doc(db, "products", 'CgCUHQkzn71gm5fcQsfu');
     let results = (await getDoc(q)).data();

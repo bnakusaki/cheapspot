@@ -2,7 +2,7 @@
 
 import { getCurrentUser } from "@/firebase/firebase-auth";
 import { useState } from "react";
-import { payWithPayStack } from '../../lib/paystack.js';
+import payWithPayStack from '../../lib/paystack.js';
 
 export default function PurchaseForm ({product}) {
     const [quantity, setQuantity] = useState();

@@ -22,7 +22,7 @@
 //     handler.openIframe();
 // }
 
-export function payWithPaystack(email, amount) {
+export default function payWithPaystack(email, amount) {
     console.log(email);
     console.log(amount);
     var handler = PaystackPop.setup({
