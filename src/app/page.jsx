@@ -1,8 +1,8 @@
-import Banner from "@/components/banner/banner";
-import Header from "@/components/header/header";
-import Product from "@/components/product/product";
+import Banner from "@/app/_components/_banner/banner";
+import Header from "@/app/_components/_header/header";
+import Product from "@/app/_components/_product/product";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase";
+import { db } from "../_lib/firebase/firebase";
 
 
 export default async function HomePage () {

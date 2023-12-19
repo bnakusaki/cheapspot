@@ -1,13 +1,13 @@
 'use client'
 
-import { onAuthStateChanged } from '@/firebase/firebase-auth';
+import { onAuthStateChanged } from '@/_lib/firebase/firebase-auth';
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import logo from '../../../public/cheapspot.png';
-import ProfileMenu from './components/profile';
-import SignInButton from './components/signInButton';
+import logo from '../../../../public/cheapspot.png';
+import ProfileMenu from './profile';
+import SignInButton from './signInButton';
 
 
 
