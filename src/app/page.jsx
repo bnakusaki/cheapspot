@@ -15,7 +15,7 @@ export default async function HomePage () {
         </header>
         <div>
           <Banner />
-          <h1 className="flex justify-center my-7 text-xl">New Arrivals</h1>
+          <h1 className="flex justify-center my-7 text-xl">Deals</h1>
           <div className="px-3 md:px-14 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
             {
               results.data().products.map(

@@ -15,7 +15,9 @@ function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html>
       <body className={montserrat.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          {children}
+          </StyledComponentsRegistry>
         <SpeedInsights />
       </body>
     </html>
