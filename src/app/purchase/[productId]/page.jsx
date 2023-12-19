@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../../firebase/firebase";
+import { db } from "../../../_lib/firebase/firebase";
 import PurchaseForm from '../components/purchase-form/purchase-form';
 
 
