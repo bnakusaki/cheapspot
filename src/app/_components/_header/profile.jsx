@@ -2,7 +2,7 @@ import { LogoutOutlined } from '@ant-design/icons';
 import { Dropdown, Modal } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
-import * as authentication_functions from "../../../_lib/firebase/firebase-auth";
+import * as authentication_functions from "../../_lib/firebase/firebase-auth";
 
 
 function Profile ({user}) {

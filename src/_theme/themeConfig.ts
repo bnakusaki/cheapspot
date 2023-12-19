@@ -5,6 +5,11 @@ const theme: ThemeConfig = {
         fontSize: 16,
         colorPrimary: '#52c41a',
     },
+    components: {
+        Button: {
+            primaryColor: '#000'
+        }
+    }
 };
 
 export default theme;

@@ -2,12 +2,12 @@
 'use client'
 
 
-import { createErrorMessage } from "@/lib/create_error_message";
+import { createErrorMessage } from "@/app/_lib/create_error_message";
+import * as authentication_functions from "@/app/_lib/firebase/firebase-auth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
-import * as authentication_functions from "../../../firebase/firebase-auth";
 
 
 export default function SignUpPage () {
@@ -26,7 +26,7 @@ export default function SignUpPage () {
         setProcessingSignUp(true);
         setError();
         await authentication_functions.signInWithGoogle()
-        .then(()=>{router.push("/")})
+        .then(()=>{router.back();router.back();})
         .catch((error)=>{setError(error)});
         setProcessingSignUp(false);
     }
@@ -36,7 +36,7 @@ export default function SignUpPage () {
         setProcessingSignUp(true);
         setError();
         await authentication_functions.signUpWithEmailAndPassword(name, email, password)
-        .then(()=>{router.push("/")})
+        .then(()=>{router.back();router.back();})
         .catch((error)=>{setError(error)});
         setProcessingSignUp(false);
     };
@@ -86,7 +86,7 @@ export default function SignUpPage () {
                 <div className="mt-4"/>
 
                 <div className="flex w-full items-end justify-end">
-                    <Link href="/authentication/sign-in" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign in instead</Link>
+                    <Link href="#" onClick={()=>{router.back()}} className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign in instead</Link>
                 </div>
 
                 <div className="mt-7"/>

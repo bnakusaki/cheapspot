@@ -1,6 +1,6 @@
 'use client'
 
-import { getCurrentUser } from "@/_lib/firebase/firebase-auth.js";
+import { getCurrentUser } from "@/app/_lib/firebase/firebase-auth.js";
 import { useState } from "react";
 import payWithPayStack from '../../lib/paystack.js';
 

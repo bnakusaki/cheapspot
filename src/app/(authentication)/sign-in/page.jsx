@@ -1,15 +1,15 @@
-"use client"
+'use client'
 
-import { createErrorMessage } from "@/lib/create_error_message";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
-import * as authentication_functions from "../../../firebase/firebase-auth";
+import { createErrorMessage } from '@/app/_lib/create_error_message';
+import * as authentication_functions from '@/app/_lib/firebase/firebase-auth';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 
 export default function SignInPage () {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
 
@@ -20,7 +20,7 @@ export default function SignInPage () {
         setIsLoading(true);
         setError()
         await authentication_functions.signInWithGoogle()
-        .then(()=>{router.push("/")})
+        .then(()=>{router.back()})
         .catch((error)=>{setError(error)});
         setIsLoading(false);
     }
@@ -30,7 +30,7 @@ export default function SignInPage () {
         setIsLoading(true);
         setError()
         await authentication_functions.signInWithEmailAndPassword(email, password)
-        .then(()=>{router.push("/")})
+        .then(()=>{router.back()})
         .catch((error)=>{setError(error)});
         setIsLoading(false);
     };
@@ -66,11 +66,11 @@ export default function SignInPage () {
                 </div>
                 <div className="mt-5"/>
                 <div className="flex w-full items-end justify-end">
-                    <Link href="/authentication/forgot-password" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]"><p >Forgot password?</p></Link>
+                    <Link href="/forgot-password" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]"><p >Forgot password?</p></Link>
                 </div>
 
                 <div className="flex w-full items-end justify-end">
-                    <Link href="/authentication/sign-up" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign up instead</Link>
+                    <Link href="/sign-up" className="text-left text-sm transition-all duration-300 ease-in-out hover:font-medium active:scale-[90%]" >Sign up instead</Link>
                 </div>
 
                     <div className="mt-7"/>
