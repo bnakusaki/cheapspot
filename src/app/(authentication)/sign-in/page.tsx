@@ -9,7 +9,7 @@ import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 
 
 
-export default function SignInPage () {
+const SignInPage:React.FC = () => {
     // Handles feedback messages for success and failures.
     /////
     const [messageApi, contextHolder] = message.useMessage();
@@ -35,7 +35,7 @@ export default function SignInPage () {
 
     const router = useRouter();
 
-    const signInWithGoogle = async(event:any)=>{
+    const signInWithGoogle = async (event:any) => {
         event.preventDefault();
         setConfirmLoading(true);
 
@@ -52,7 +52,7 @@ export default function SignInPage () {
         setConfirmLoading(false);
     }
 
-    const signIn = async(event:React.FormEvent<HTMLFormElement>)=>{
+    const signIn = async (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setConfirmLoading(true);
 
@@ -116,3 +116,5 @@ export default function SignInPage () {
         </>
     )
 }
+
+export default SignInPage;
