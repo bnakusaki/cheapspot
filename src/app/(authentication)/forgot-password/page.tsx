@@ -19,17 +19,16 @@ const ForgotPasswordPage:React.FC = ()=>{
         });
     };
 
-    const errorMessage = () => {
+    const errorMessage = (error:String) => {
         messageApi.open({
             type: 'error',
-            content: `Failed to send the password reset email to ${email}.\n${error}`,
+            content: `Failed to send the password reset email to ${email}.\n (${error})`,
         });
     };
     /////
 
 
     const [email, setEmail] = useState<String>();
-    const [error, setError] = useState<String>();
     const [confirmLoading, setConfirmLoading] = useState<Boolean>(false);
 
     const sendPasswordResetEmail = async (event:React.FormEvent<HTMLFormElement>) => {
@@ -42,8 +41,7 @@ const ForgotPasswordPage:React.FC = ()=>{
             })
         .catch((error)=>{
             let msg = createErrorMessage({error})
-            setError(msg);
-            errorMessage();
+            errorMessage(msg);
         });
 
         setConfirmLoading(false);
