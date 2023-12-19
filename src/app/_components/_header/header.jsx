@@ -1,6 +1,6 @@
 'use client'
 
-import { onAuthStateChanged } from '@/_lib/firebase/firebase-auth';
+import { onAuthStateChanged } from '@/app/_lib/firebase/firebase-auth';
 import { Col, Row } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';

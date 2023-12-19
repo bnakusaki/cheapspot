@@ -1,7 +1,7 @@
+import StyledComponentsRegistry from '@/app/_lib/AntdRegistry';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import StyledComponentsRegistry from '../_lib/AntdRegistry';
 import './globals.css';
 
 const montserrat = Montserrat({ subsets: ['latin'] })
